@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-prim{
+    height: 62px;
+    width: 100%;
+    background-color: red;
+    display: flex;
+
+}
+
+.bank-info a{
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+
+.navbar-sec{
+    height: 63px;
+    width: 100%;
+    display: flex;
+    background-color: aqua;
+}
+
+#services li{
+    display: inline;
+}
