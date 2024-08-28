@@ -1,0 +1,134 @@
+<nav class="navbar bg-dark " data-bs-theme="dark">
+    <div class="bank-info container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <img src="Assets/Logo.png" class="brand-img" alt="Logo" width="105" height="54" class="d-inline-block align-text-top">
+        </a>
+      <div class="login" >
+        <i class="user-logo fa-solid fa-user"></i>
+        LOGIN
+      </div>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Accounts & Deposits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cards</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Loans</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Payments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Service Requests</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown link
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </ul>
+        <a href="" class="service-btn"><i class="fa-solid fa-headphones"></i> Help Center</a>
+        <a href="" class="service-btn btn-2"><i class="fa-solid fa-location-dot"></i> Locate Us</a>
+
+
+      </div>
+    </div>
+</nav>
+
+<style>
+        *{
+        margin: 0;
+        padding: 0;
+    }
+    .container-fluid{
+        padding: 0% 15% 0;
+    } 
+
+    .brand-img{
+        border-radius: 10px;
+    }
+
+    .login{
+        height: 40px;
+        /* width: auto; */
+        background-color: #EDEAE7;
+        color: #3e6678;
+        font-family: sans-serif;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 0.7%;
+        cursor: pointer;
+    }
+    .user-logo{
+        margin-right: 5px;
+    }
+
+    .navbar-sec{
+        height: 63px;
+        display: flex;
+        background-color: rgb(231, 225, 225);
+    }
+
+    .navbar-nav {
+        display: flex;
+        justify-content: space-between; 
+        width: 100%; 
+        padding: 0;
+        margin: 0;
+        list-style: none; }
+
+    .nav-item {
+        flex-grow: 1; 
+        text-align: center; 
+    }
+
+    .nav-link {
+        display: block;
+        padding: 10px 15px; 
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .navbar-nav .dropdown-menu {
+        text-align: left; 
+    }
+
+    .nav-item.dropdown {
+        flex-grow: 0; 
+    }
+
+    .service-btn{
+        border: 1px solid black;
+        /* padding: 3% 5%; */
+        height: 40px;
+        width: 200px;
+        margin: 0 2%;
+        border-radius: 20px;
+        background-color: #46494c;
+        padding: 0.5%;
+        text-decoration: none;
+        color: white;
+    }
+
+    .service-btn i {
+        padding: 0 3%;
+    }
+
+    .btn-2{
+        padding-left: 1.5%;
+    }
+</style>

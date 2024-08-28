@@ -2,28 +2,200 @@
     margin: 0;
     padding: 0;
 }
+.container-fluid{
+    padding: 0% 15% 0;
+} 
 
-.navbar-prim{
-    height: 62px;
-    width: 100%;
-    background-color: red;
-    display: flex;
-
+.brand-img{
+    border-radius: 10px;
 }
 
-.bank-info a{
+.login{
+    height: 40px;
+    /* width: auto; */
+    background-color: #EDEAE7;
+    color: #3e6678;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0.7%;
+    cursor: pointer;
+}
+
+.login a{
+    color: #3e6678;
     text-decoration: none;
-    font-size: 1.5rem;
 }
-
+.user-logo{
+    margin-right: 5px;
+}
 
 .navbar-sec{
     height: 63px;
-    width: 100%;
     display: flex;
-    background-color: aqua;
+    background-color: rgb(231, 225, 225);
 }
 
-#services li{
-    display: inline;
+.navbar-nav {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%; 
+    padding: 0;
+    margin: 0;
+    list-style: none; }
+
+.nav-item {
+    flex-grow: 1; 
+    text-align: center; 
 }
+
+.nav-link {
+    display: block;
+    padding: 10px 15px; 
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar-nav .dropdown-menu {
+    text-align: left; 
+}
+
+.nav-item.dropdown {
+    flex-grow: 0; 
+}
+
+.service-btn{
+    border: 1px solid black;
+    /* padding: 3% 5%; */
+    height: 40px;
+    width: 200px;
+    margin: 0 2%;
+    border-radius: 20px;
+    background-color: #46494c;
+    padding: 0.5%;
+    text-decoration: none;
+    color: white;
+}
+
+.service-btn i {
+    padding: 0 3%;
+}
+
+.btn-2{
+    padding-left: 1.5%;
+}
+
+.ads-section{
+    padding-bottom: 10%;
+    height: 80%;
+    background-color: #46494c;
+}
+
+.ad-card{
+    background-color: #EDEAE7;
+    margin: 4% 5% 5% 7%;
+}
+
+.ad-btn{
+    border: 1px solid black;
+    background-color: #4c5c68;
+}
+
+.ad-btn:hover{
+    background-color: #fff;
+    color: black;
+    /* font-weight: bold; */
+    border: 1px solid black;
+}
+
+.hor-card{
+    display: flex;
+}
+
+.horizontal-card{
+    background-color: #EDEAE7 ;
+    width: 55%;
+    margin-left: 6.2%;
+
+}
+
+.back-to-top{
+    height: 50px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+
+.foot-txt{
+   padding-left: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+.panel-links{
+    height: 400px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #EDEAE7;
+}
+
+.foot-access{
+    margin: 3%;
+
+}
+.panel-links li{
+    color: black;
+   list-style: none;
+   font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.ext-links{
+    width: 100%;
+    background-color: #EDEAE7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+  
+}
+
+.ext-pad{
+    text-align: center;
+    width: 12rem;
+    margin: 0 8%;
+    margin-bottom: 3%;
+}
+
+.ext-pad p {
+    margin-right: 5%;
+}
+
+.icon {
+    
+    font-size: 1.5rem;
+    color: black;
+    margin-right: 10%;
+}
+
+.copyright {
+    padding: 1%;
+    background-color: #6a6868;
+    text-align: center;
+}
+
+.copyright a{
+    margin: 5% 5% 0 0;
+    text-decoration: none;
+    color: white;
+
+}
+
