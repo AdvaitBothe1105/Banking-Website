@@ -19,6 +19,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
+    margin-bottom: 5%;
 }
 
 h2 {
@@ -59,7 +60,7 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
-button {
+.app-btn {
     width: 100%;
     padding: 10px;
     background-color: #4c5c68;
@@ -70,7 +71,79 @@ button {
     font-size: 16px;
 }
 
-button:hover {
+.app-btn:hover {
     background-color: #425665;
     /* color: black; */
+}
+
+.sub-btn {
+    width: 50%;
+    padding: 10px;
+    background-color: #4c5c68;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 3%;
+}
+
+.pass {
+    padding-left: 2%;
+    border: 1px solid #ddd;
+    font-size: 1.7rem;
+    width: 100%;
+}
+
+.terms {
+    display: flex;
+}
+
+.hidden{
+    display: none;
+}
+.visible {
+    display: block;
+}
+.kyc-form {
+    margin: 10% 0 10% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kyc-card {
+    width: 70%;
+    text-align: center;
+}
+
+#kyc-cust-name {
+    width: 50%;
+    text-align: center;
+}
+
+.otp-box {
+    /* margin-top: 5%; */
+    position: relative;
+    left: 27%;
+    text-align: center;
+    background-color: #edeae7;
+    color: white;
+    border-radius: 5%;
+    width: 45rem;
+    height: 20rem;
+    padding: 5%;
+    margin-bottom: 25%;
+}
+
+.otp-input {
+    text-align: center;
+    border-radius: 5%;
+    margin: 3% 0 5% 0;
+    font-size: 1.2rem;
+}
+
+.pay-btn {
+    background-color: #e2deda;
+    padding: 1% 1% 1% 1%;
 }

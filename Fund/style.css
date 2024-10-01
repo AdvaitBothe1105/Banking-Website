@@ -1,0 +1,265 @@
+.content {
+    margin-left: 260px; /* Fixed margin based on sidebar width */
+    padding: 20px;
+    flex-grow: 1;
+  }
+
+
+
+.transfer-opt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #46494c;
+    padding: 3% 0 3% 0;
+    /* margin-bottom: 3%; */
+}
+.transfer-opt hr{
+    font-size: 1.5rem;
+    color: aqua;
+}
+
+
+.tra-box {
+    background-color: #e2deda;
+    border: 1px solid black;
+    padding: 2% 2% 2% 2%;
+    margin-left: 2.5%;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 8%;
+    margin-right: 4%;
+    font-size: 1.2rem;
+}
+
+.options-box{
+    background-color: #46494c ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3% 0 3% 0;
+    margin-bottom: 3%;
+    display: none;
+}
+.one-time-opt i {
+    font-size: 1.5rem;
+}
+.vertical-line {
+    border-left: 2px solid white; /* Thickness and color of the line */
+    height: 200px; /* Height of the line */
+    /* margin-left: 0px; Optional margin */
+}
+
+/* Manage Funds */
+
+.manage-funds-opt{
+    background-color: #46494c;
+    padding: 3% 0 3% 5%;
+    display: none;
+    
+}
+
+.outer-box {
+    border-radius: 3%;
+    width: 95%;
+    background-color: #fff;
+    padding: 2% 0 2% 10%;
+}
+
+.fund-txt{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.fund-txt-norm {
+    font-size: 0.8rem;
+    filter: blur(0.5px);
+    padding: 1% 0 1% 0;
+}
+
+.limit-input{
+    margin-bottom: 2%;
+    display: flex;
+}
+.limit-input input {
+    padding-left: 2%;
+    width: 60%;
+}
+
+.limit-input p {
+    margin-top: 1%;
+    padding-left: 5%;
+}
+
+.manage-funds-opt ul{
+    position: relative;
+    right: 3.5%;
+    list-style-type: none;
+}
+.heading {
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+.manage-funds-opt button {
+    font-size: 1.2rem;
+    width: 250px;;
+    position: relative;
+    left: 12%;
+}
+.manage-funds-opt button i {
+    padding-right: 4%;
+}
+
+
+
+/* Recent Transactions */
+
+.recent-trans{
+    margin-top: 3%;
+}
+
+.recent-trans i{
+    padding: 10px 10px 10px 10px;
+    font-size: 1.1rem;
+    background-color: #46494c;
+    border-radius: 50%;
+  }
+  
+.money-btn {
+    margin: 2% 10% 2% 18% ;
+    background-color: #46494c;
+    color: white;
+    border: none;
+  }
+.money-btn:hover {
+    background-color: black;
+  }
+
+.icon-up {
+color: cyan;
+}
+
+.icon-down {
+color: red;
+}
+.item {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 25px;
+  
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+/* Optional: Smooth transition */
+.transfer-form {
+    background-color: #46494c;
+    padding: 2% 2% 2% 5%;
+    color: white;
+    border-radius: 5%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.box{
+    position: relative;
+    left: 35%;
+    text-align: center;
+    width: 30%;
+    padding: 1% 1% 1% 1%;
+    margin-bottom: 3%;
+    /* border-radius: 5%; */
+    color: black;
+    background-color: #fff;
+}
+
+.sender-info {
+    width: 30%;
+    padding: 2% 0 2% 2%;
+    border-radius: 5%;
+    color: black;
+    margin-bottom: 3%;
+    background-color: #e2deda;
+}
+
+.transfer-form.visible {
+    opacity: 1;
+}
+
+.transfer-form.hidden {
+    opacity: 0;
+}
+
+
+/* Fund Transfer form */
+
+#location {
+    margin-left: 3%;
+    margin-bottom: 3%;
+}
+
+
+.transfer-form input {
+    margin: 1% 0 0 0;
+}
+.acc-input {
+    width: 150%;
+}
+.input-box {
+    width: 65.3%;
+}
+
+
+
+.sub-btn {
+    background-color: #e2deda;
+    border: none;
+    color: black;
+    margin: 3% 3% 3% 0;
+}
+.acc-no {
+    display: flex;
+}
+.acc-box{ 
+    margin-right: 15%;
+}
+.sub-btn:hover {
+    background-color: #fff;
+    color: black;
+
+}
+
+
+/* OTP- FORM */
+
+#otp-form {
+    position: relative;
+    margin-top: 10%;
+    left: 25%;
+    width: 50%;
+    background-color: #46494c;
+    color: white;
+    border-radius: 5%;
+    text-align: center;
+}
+
+.otp-box {
+    padding: 10% 10% 10% 10%;
+}
+
+.otp-input {
+    text-align: center;
+    border-radius: 5%;
+    margin: 3% 0 5% 0;
+    font-size: 1.2rem;
+}
+
+.pay-btn {
+    background-color: #e2deda;
+    padding: 1% 1% 1% 1%;
+}

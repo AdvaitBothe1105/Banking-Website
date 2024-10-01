@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main-img-div {
+    position: relative;
+    width: 100%;
+    /* max-width: 1500px;  */
+    margin: 0 auto;   /* Center the image horizontally */
+  }
+  
+.main-img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+.button-overlay {
+    position: absolute;
+    top: 70%;  /* Center vertically */
+    left: 13%; /* Center horizontally */
+    text-align: center;
+    display: flex;
+  flex-direction: row;
+  gap: 140px;
+  }
+
+.download-button {
+    border: none;
+    background-color: #485769;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.download-button:hover {
+    background-color: #485769;
+    color: white;
+}

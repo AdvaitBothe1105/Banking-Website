@@ -16,7 +16,7 @@
             <a class="navbar-brand" href="index.html">
                 <img src="Assets/Logo.png" class="brand-img" alt="Logo" width="105" height="54" class="d-inline-block align-text-top">
             </a>
-          <div class="login" >
+          <div class="login" type="button" href="Login.html" >
             <i class="user-logo fa-solid fa-user"></i>
             <a href="Login.html">LOGIN</a>
           </div>
@@ -66,10 +66,10 @@
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="true">
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="5000">
-                <img src="Assets/Ad-1.png" class="d-block w-100" alt="...">
+                <img src="Assets/FAd(1).png" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item" data-bs-interval="5000">
-                <img src="Assets/Ad-2.png" class="d-block w-100" alt="...">
+                <img src="Assets/Ad-1.png" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item" data-bs-interval="5000">
                 <img src="Assets/Ad-3.png" class="d-block w-100" alt="...">
@@ -138,86 +138,17 @@
       </div>
   </div>
 
-  <section title="footer">
-    <div class="back-to-top">
-      Back to Top
-    </div>
-    <div class="panel-links">
-      <div class="foot-access">
-        <p class="foot-txt">About us</p>
-        <ul>
-           <li>Our Businesses</li>
-           <li>Media Centre</li>
-           <li>Sustainability</li>
-           <li>Careers</li>
-           <li>DIFC Branch</li>
-           <li>GIFT Branch</li>
-           <li>KMFSL</li>
-        </ul>
-       </div>
-       <div class="foot-access">
-          <p class="foot-txt">Customer Service</p>
-          <ul>
-            <li>Important Information</li>
-            <li>Write to us</li>
-            <li>Grievance Redressal</li>
-            <li>Report Fraud / Raise Dispute</li>
-            <li>Download Forums</li>
-            <li>Service Requests</li>
-            <li>Track Application Status</li>
-          </ul>
-       </div>
-       <div class="foot-access">
-        <p class="foot-txt">Investor Relations</p>
-        <ul>
-           <li>Overview</li>
-           <li>Financials</li>
-           <li>Governanace</li>
-           <li>Investor Info</li>
-        </ul>
-       </div>
-       <div class="foot-access">
-        <p class="foot-txt">Rates and Fees</p>
-        <ul>
-           <li>Interest Rates</li>
-           <li>Fees & Charges (GSFC)</li>
-           <li>Goods & Services Tax (GST)</li>
-        </ul>
-       </div>       
-       <div class="foot-access">
-        <p class="foot-txt">Others</p>
-        <ul>
-           <li>Credit Card T&C</li>
-           <li>Debit Card T&C</li>
-           <li>Co Brand Credit Card</li>
-           <li>Public Notice</li>
-        </ul>
-       </div>    
-    </div>
-    <div class="ext-links">
-      <div class="connect ext-pad">
-        <p>Connect with Us</p>
-        <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-        <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-      </div>
-      <div class="download ext-pad">
-        <p>Install the VYOM App</p>
-        <a href="" class="icon"><i class="fa-brands fa-google-play"></i></a>
-        <a href="" class="icon"><i class="fa-brands fa-apple"></i></a>
-      </div>
-    </div>
+  <div id="foot-placeholder">
 
-    <div class="copyright">
-      <a href="" class="copy-icon">VYOM Bank Limited</a>
-      <a href="" class="copy-icon">Disclaimer</a>
-      <a href="" class="copy-icon">Privacy Policy</a>
-      <a href="" class="copy-icon">Terms and Conditions</a>
-    </div>
-
-  </section>
-      
+  </div>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('foot-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+</script>
     
 
 <script src="app.js"></script>    

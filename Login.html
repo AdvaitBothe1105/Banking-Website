@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,43 +7,30 @@
     <link rel="stylesheet" href="Login/Modern-Login/style.css">
     <title>Login Page</title>
 </head>
-
 <body>
-
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form id="sign-up-form">
                 <h2>Register with VYOM</h2>
                 <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <!-- Social icons here -->
                 </div>
-                <input type="password" placeholder="CRN or Card Number">
+                <input type="text" placeholder="CRN or Card Number" required>
                 <a href="newAcc.html">Don't have an account? Apply it now.</a>
-                <button>Sign Up</button>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
-        <div class="form-container sign-in">
-            <form>
+        <div class="form-container sign-in" id="sign-in">
+            <form id="login-form">
                 <h1>Log In</h1>
                 <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <!-- Social icons here -->
                 </div>
-                <input type="email" placeholder="CRN, Username or Card Number">
-                <input type="password" placeholder="Password">
+                <input type="text" id="identifier" placeholder="CRN, Username or Card Number" required>
+                <input type="password" id="pass" placeholder="Password" required>
+                <small id="password-error" style="color: red;"></small>
                 <a href="#">Forget Your Password?</a>
-                <button id="navigateButton">Log In</button>
-                <script>
-                    document.getElementById('navigateButton').addEventListener('click', function() {
-                        event.preventDefault();
-                        window.location.href = "Services.html";
-                    });
-                </script>
+                <button type="submit" id="navigateButton">Log In</button>
             </form>
         </div>
         <div class="toggle-container">
@@ -62,8 +48,6 @@
             </div>
         </div>
     </div>
-
     <script src="Login/Modern-Login/script.js"></script>
 </body>
-
 </html>

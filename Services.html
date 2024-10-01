@@ -13,6 +13,45 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="create-sidebar-menu-html-css-only/Responsive Sidebar Menu HTML CSS/style.css" />
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+          // Retrieve CRN from localStorage
+          const crn = localStorage.getItem('crn');
+
+          if (!crn) {
+              // Redirect to login if CRN is not found
+              window.location.href = 'login.html';
+              return;
+          }
+
+          try {
+              // Fetch the user's name and account type from the server
+              const response = await fetch(`http://localhost:3000/user-details/${crn}`);
+              const result = await response.json();
+              console.log(result);
+              
+
+              if (response.ok) {
+                  // Display user's name and account type
+                  document.getElementById('welcome-message').textContent = `${result.cust_name}`;
+                  document.getElementById('account-type-display').textContent = `${result.account_type}`;
+                  document.getElementById('account_number').textContent = `${result.account_number}`
+
+                  
+                  document.getElementById('balance').textContent = `${result.balance}`
+
+              } else {
+                  // Handle error (e.g., user not found)
+                  document.getElementById('error-message').textContent = result.message;
+              }
+          } catch (error) {
+              console.error('Error fetching user details:', error);
+              document.getElementById('error-message').textContent = 'Error fetching user details.';
+          }
+      });
+      
+
+  </script>
   </head>
   <body>
     <aside class="sidebar">
@@ -25,7 +64,7 @@
           <div class="menu-separator"></div>
         </h4>
         <li>
-          <a href="#">
+          <a href="Services.html">
             <span class="material-symbols-outlined"> dashboard </span>Home
           </a>
         </li>
@@ -33,7 +72,7 @@
           <a href="#"><span class="material-symbols-outlined"> overview </span>Accounts/Deposits</a>
         </li>
         <li>
-          <a href="#"><span class="material-symbols-outlined"> payments </span>Fund Transfer</a>
+          <a href="fund.html"><span class="material-symbols-outlined"> payments </span>Fund Transfer</a>
         </li>
         <li>
           <a href="#"><span class="material-symbols-outlined"> receipt_long </span>Statements</a>
@@ -42,7 +81,7 @@
           <a href="#"><span class="material-symbols-outlined"> credit_card </span>Cards</a>
         </li>
         <li>
-          <a href="#"><span class="material-symbols-outlined"> move_up </span>Investments</a>
+          <a href="Investments.html"><span class="material-symbols-outlined"> move_up </span>Investments</a>
         </li>
         <li>
           <a href="#"><span class="material-symbols-outlined"> real_estate_agent </span>Loans</a>
@@ -65,15 +104,16 @@
           <a href="#"><span class="material-symbols-outlined"> settings </span>Settings</a>
         </li>
         <li>
-          <a href="#"><span class="material-symbols-outlined"> logout </span>Logout</a>
+          <a href="#" type="button" id="logout"><span class="material-symbols-outlined"> logout </span>Logout</a>
         </li>
       </ul>
       <div class="user-account">
         <div class="user-profile">
           <img src="create-sidebar-menu-html-css-only/Responsive Sidebar Menu HTML CSS/images/profile-img.jpg" alt="Profile Image" />
           <div class="user-detail">
-            <h3>Advait Bothe</h3>
-            <span>Savings Account</span>
+            <h3 id="welcome-message"></h3>
+            <span id="account_number"></span> <br>
+            <span id="account-type-display"></span>
           </div>
         </div>
       </div>
@@ -85,22 +125,22 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><i class="icon-up fa-solid fa-arrow-trend-up"></i> Your Assets</h5>
-              <div class="card-text" id="asset-txt">
+              <div class="card-text" id="asset-txt" style="display: none;">
                 <p class="item">
-                  <span>Cash</span>
-                  <span>10000/-</span>
+                  <span>Balance</span>
+                  <span id="balance"> ₹ </span>
                 </p>
                 <p class="item">
                   <span>Investments</span>
-                  <span>10000/-</span>
+                  <span>N.A</span>
                 </p>
                 <p class="item">
                   <span>Real Estate</span>
-                  <span>10000/-</span>
+                  <span>N.A</span>
                 </p>
                 <p class="item">
                   <span>Others</span>
-                  <span>10000/-</span>
+                  <span>N.A</span>
                 </p>
               </div>              
               <button class="btn btn-primary" id="assets-btn"><i class="fa-solid fa-eye"></i> View Balance</button>
@@ -111,22 +151,22 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><i class="icon-down fa-solid fa-arrow-trend-down"></i> Your Liabilites</h5>
-              <div class=" card-text" id="liab-txt">
+              <div class=" card-text" id="liab-txt" style="display: none;">
                 <p class="item">
                   <span>Mortgage</span>
-                  <span>10000/-</span>
+                  <span>N.A</span>
                 </p>
                 <p class="item">
                   <span>Student Loans</span>
-                  <span>10000/-</span>
+                  <span>N.A</span>
                 </p>
                 <p class="item">
                   <span>Credit Cards</span>
-                  <span>10000/-</span>
+                  <span>N.A</span>
                 </p>
                 <p class="item">
                   <span>Others</span>
-                  <span>10000/-</span>
+                  <span>N.A</span>
                 </p>
               </div>
               <a href="#" class="btn btn-primary" id="liab-btn"><i class="fa-solid fa-eye"></i>   View Details</a>
@@ -140,19 +180,8 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Recent Transactions</h5>
-              <p class="item"><i class="icon-down fa-solid fa-arrow-trend-up"></i> <i class="icon-up fa-solid fa-hand-holding-dollar"></i> 23rd August 2024   <span>UPI/SHIVANI/PHARMAC/5626545646/UPI</span> <span> -₹1000.00</span></p>
-              <hr>
-              <p class="item"><i class="icon-down fa-solid fa-arrow-trend-up"></i> <i class="icon-up fa-solid fa-hand-holding-dollar"></i> 23rd August 2024   <span>UPI/SHIVANI/PHARMAC/5626545646/UPI</span><span> +₹1000.00</span></p>
-              <hr>
-              <p class="item"><i class="icon-down fa-solid fa-arrow-trend-up"></i> <i class="icon-up fa-solid fa-hand-holding-dollar"></i> 23rd August 2024   <span>UPI/SHIVANI/PHARMAC/5626545646/UPI</span><span> -₹1000.00</span></p>
-              <hr>
-              <p class="item"><i class="icon-down fa-solid fa-arrow-trend-up"></i> <i class="icon-up fa-solid fa-hand-holding-dollar"></i> 23rd August 2024   <span>UPI/SHIVANI/PHARMAC/5626545646/UPI</span><span> +₹1000.00</span></p>
-              <hr>
-              <p class="item"><i class="icon-down fa-solid fa-arrow-trend-up"></i> <i class="icon-up fa-solid fa-hand-holding-dollar"></i> 23rd August 2024   <span>UPI/SHIVANI/PHARMAC/5626545646/UPI</span><span> -₹1000.00</span></p>
-              <hr>
-
               <a href="#" class="money-btn btn btn-primary"><i class="fa-solid fa-newspaper"></i> View Statements</a>
-              <a href="#" class="money-btn btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i> Transfer Money</a>
+              <a href="fund.html" class="money-btn btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i> Transfer Money</a>
             </div>
           </div>
         </div>
@@ -160,16 +189,18 @@
 
       <div class="loan-con row">
         <div class="col-sm-12 mb-3 mb-sm-0">
-          <div class="card">
+          <div class="loan-main card">
             <div class="card-body">
               <h5 class="card-title">Loans</h5>
               <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
-                  <div class="card-sec card h-100">
+                  <div class="card h-100">
                     <img src="Assets/Home.png" class="card-img-top" alt="..." width="474" height="223">
                     <div class="card-body">
                       <h5 class="card-title">Home Loan</h5>
-                      <p class="card-text">Vyoma Bank offers a diverse range of home loans in India to help you achieve your dream of homeownership. Whether you're a first-time buyer, upgrading your home, or looking to reduce your EMI by transferring your loan, we have tailored solutions to meet your needs.</p>
+                      <div class="card-p">
+                        <p class="card-text">Vyoma Bank offers a diverse range of home loans in India to help you achieve your dream of homeownership. Whether you're a first-time buyer, upgrading your home, or looking to reduce your EMI by transferring your loan, we have tailored solutions to meet your needs.</p>
+                      </div>
                     </div>
                     <div class="card-footer">
                       <a href="#" class=" loan-btn btn btn-primary"><i class="fa-solid fa-circle-info"></i> More Details</a>
@@ -178,11 +209,13 @@
                   </div>
                 </div>
                 <div class="col">
-                  <div class="card-sec card h-100">
+                  <div class="card h-100">
                     <img src="Assets/Car.png" class="card-img-top" alt="..." width="474" height="223">
                     <div class="card-body">
                       <h5 class="card-title">Car Loan</h5>
-                      <p class="card-text"> Vyoma Bank offers a wide range of car loans in India to help you drive home your dream vehicle. Whether you're buying your first car, upgrading to a new model, or refinancing an existing car loan, we have personalized solutions to fit your needs. </p>
+                      <div class="card-p">
+                        <p class="card-text"> Vyoma Bank offers a wide range of car loans in India to help you drive home your dream vehicle. Whether you're buying your first car, upgrading to a new model, or refinancing an existing car loan, we have personalized solutions to fit your needs. </p>
+                      </div>
                     </div>
                     <div class="card-footer">
                       <a href="#" class=" loan-btn btn btn-primary"><i class="fa-solid fa-circle-info"></i> More Details</a>
@@ -192,11 +225,13 @@
                   </div>
                 </div>
                 <div class="col">
-                  <div class="card-sec card h-100">
+                  <div class="card h-100">
                     <img src="Assets/Gold.png" class="card-img-top" alt="..." width="474" height="223">
                     <div class="card-body">
                       <h5 class="card-title">Gold Loan</h5>
-                      <p class="card-text">Vyoma Bank offers convenient and quick gold loans in India, allowing you to unlock the value of your gold without selling it. With simple documentation, competitive interest rates, and flexible repayment options, our gold loan services cater to your immediate financial needs.</p>
+                      <div class="card-p">
+                       <p class="card-text">Vyoma Bank offers convenient and quick gold loans in India, allowing you to unlock the value of your gold without selling it. With simple documentation, competitive interest rates, and flexible repayment options, our gold loan services cater to your immediate financial needs.</p>
+                      </div>
                     </div>
                     <div class="card-footer">
                       <a href="#" class=" loan-btn btn btn-primary"><i class="fa-solid fa-circle-info"></i> More Details</a>
@@ -208,6 +243,128 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="dep-con row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+          <div class="dep-main card">
+            <div class="card-body">
+              <h5 class="card-title">Deposits</h5>
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="dep-card-sec col">
+                  <div class="card h-100">
+                    <img src="Assets/fix.png" class="card-img-top" alt="..." width="474" height="223">
+                    <div class="card-body">
+                      <h5 class="card-title">Fixed Deposits</h5>
+                      <div class="card-p">
+                      <p class="card-text">VYOMA Bank offers Fixed Deposits (FDs) that provide a secure way to grow your savings with attractive interest rates and flexible tenure options. Enjoy the safety of guaranteed returns, making FDs a reliable choice for risk-averse investors seeking to earn steady income over time.</p>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="d-grid gap-2 col-6 mx-auto">
+                        <a href="#" class=" dep-btn btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i> Open</a>                          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dep-card-sec col">
+                  <div class="card h-100">
+                    <img src="Assets/recc.png" class="card-img-top" alt="..." width="474" height="223">
+                    <div class="card-body">
+                      <h5 class="card-title">Recurring Deposits</h5>
+                      <div class="card-p">
+                      <p class="card-text">With VYOMA Bank's Recurring Deposit (RD) scheme, you can systematically save a fixed amount every month, earning interest similar to an FD. This disciplined approach helps you build a substantial corpus over time, making it ideal for achieving your financial goals.</p>
+                      </div>
+
+                    </div>
+                    <div class="card-footer">
+                      <div class="d-grid gap-2 col-6 mx-auto">
+                        <a href="#" class=" dep-btn btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i> Open</a>                          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dep-card-sec col">
+                  <div class="card h-100">
+                    <img src="Assets/tax (1).png" class="card-img-top" alt="..." width="474" height="223">
+                    <div class="card-body">
+                      <h5 class="card-title">Tax-Saving Deposits</h5>
+                      <div class="card-p">
+                      <p class="card-text">VYOMA Bank's Tax-Free Deposit options allow you to earn interest without worrying about tax deductions. These deposits are a smart choice for those looking to maximize returns while minimizing tax liabilities, helping you secure your financial future effectively.</p>
+
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="d-grid gap-2 col-6 mx-auto">
+                        <a href="#" class=" dep-btn btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i> Open</a>                          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="loan-con row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+          <div class="loan-main card">
+            <div class="card-body">
+              <h5 class="card-title">Investments</h5>
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                  <div class="card h-100">
+                    <img src="Assets/nft.png" class="card-img-top" alt="..." width="474" height="223">
+                    <div class="card-body">
+                      <h5 class="card-title">NPS</h5>
+                      <div class="card-p">
+                        <p class="card-text">VYOMA Bank offers the National Pension System (NPS), a government-backed retirement savings scheme that provides a secure and flexible way to build a retirement corpus. With tax benefits and a choice of investment options, NPS helps you plan for a financially stable future.</p>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <a href="#" class=" loan-btn btn btn-primary"><i class="fa-solid fa-circle-info"></i> More Details</a>
+                      <a href="#" class=" loan-btn btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i> Apply Now!!</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100">
+                    <img src="Assets/demat.png" class="card-img-top" alt="..." width="474" height="223">
+                    <div class="card-body">
+                      <h5 class="card-title">DEMAT</h5>
+                      <div class="card-p">
+                        <p class="card-text"> VYOMA Bank's Demat Account allows you to securely hold and manage your shares and securities in electronic form. With seamless transactions, real-time access to your portfolio, and robust security features, our Demat services make investing in the stock market convenient and efficient. </p>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <a href="#" class=" loan-btn btn btn-primary"><i class="fa-solid fa-circle-info"></i> More Details</a>
+                      <a href="#" class=" loan-btn btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i> Apply Now!!</a>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100">
+                    <img src="Assets/mutual.png" class="card-img-top" alt="..." width="474" height="223">
+                    <div class="card-body">
+                      <h5 class="card-title">Mutual Funds</h5>
+                      <div class="card-p">
+                        <p class="card-text">VYOMA Bank offers a wide range of Mutual Fund investment options, catering to different risk profiles and financial goals. Whether you're looking for growth, income, or tax-saving options, our expert-curated mutual funds help you diversify your portfolio and achieve your investment objectives.</p>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <a href="#" class=" loan-btn btn btn-primary"><i class="fa-solid fa-circle-info"></i> More Details</a>
+                      <a href="#" class=" loan-btn btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i> Apply Now!!</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
 
       
     </main>
