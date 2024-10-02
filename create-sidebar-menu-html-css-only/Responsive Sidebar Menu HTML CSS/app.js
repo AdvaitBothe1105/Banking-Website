@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Add buttons at the end of the list
                 transactionsContainer.innerHTML += `
                 <a href="fund.html?accountNumber=${accountNumber}" class="money-btn btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i> Transfer Money</a>
-                <a href="#" class="money-btn btn btn-primary"><i class="fa-solid fa-newspaper"></i> View Statements</a>
+                <a href="http://127.0.0.1:3000/download-transactions-pdf/${accountNumber}" class="money-btn btn btn-primary" id="download-pdf-btn"><i class="fa-solid fa-newspaper"></i> Download Statements</a>
             `;
             } else {
                 document.getElementById('error-message').textContent = userDetails.message;
@@ -87,3 +87,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     
 });
+
+document.getElementById('download-pdf-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // Replace `accountNumber` with the actual account number
+    const accountNumber = document.getElementById('account_number').textContent;
+
+    // Trigger the download
+    window.location.href = `http://127.0.0.1:3000/download-transactions-pdf/${accountNumber}`;
+});
+

@@ -290,7 +290,7 @@ document.getElementById('trans-btn').addEventListener('click', async () => {
     
                 // Add buttons at the end of the list
                 transactionsContainer.innerHTML += `
-                    <a href="#" class="money-btn btn btn-primary"><i class="fa-solid fa-newspaper"></i> View Statements</a>
+                    <a href="http://127.0.0.1:3000/download-transactions-pdf/${accountNumber}" class="money-btn btn btn-primary" id="download-pdf-btn"><i class="fa-solid fa-newspaper"></i> Download Statements</a>
                     <a href="fund.html" class="money-btn btn btn-primary"><i class="fa-solid fa-hand-holding-dollar"></i> Transfer Money</a>
                 `;
             } else {
@@ -313,27 +313,52 @@ document.getElementById('sub-btn').addEventListener('click', async function(e) {
 
 
     // Send a request to your backend to trigger SMS sending
+    const senderAccNo = document.getElementById('account_number').textContent; 
+    console.log(senderAccNo);
+    // Fetch sender account number
+    const amount = document.getElementById('amount').value;
+    console.log(amount);
+     // Fetch transfer amount
+    const MINIMUM_BALANCE = 5000;
+
     try {
-        const response = await fetch('http://127.0.0.1:3000/send-sms', {
+        // Step 1: Check the balance first
+        const balanceResponse = await fetch('http://127.0.0.1:3000/check-balance', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            // body: JSON.stringify({})
+            body: JSON.stringify({ senderAccNo, amount, MINIMUM_BALANCE })
         });
 
-        if (response.ok) {
-            const data = await response.json();
-            alert('OTP sent. Please check your phone.');
+        if (balanceResponse.ok) {
+            const balanceData = await balanceResponse.json();
 
-            // Show OTP verification form
-            // const contentSections = document.querySelectorAll('.content > *:not(#nav-placeholder)');
-            // contentSections.forEach(section => section.classList.add('hidden'));
-            // document.getElementById('transaction-form').style.display = 'none';
-            // document.getElementById('otp-form').style.display = 'block';
+            if (balanceData.sufficientBalance) {
+                // Step 2: If balance is sufficient, send SMS
+                const smsResponse = await fetch('http://127.0.0.1:3000/send-sms', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (smsResponse.ok) {
+                    const smsData = await smsResponse.json();
+                    alert('OTP sent. Please check your phone.');
+                } else {
+                    alert('Failed to send OTP.');
+                }
+            } else {
+                alert('Insufficient balance. Please maintain a minimum balance of 5000.');
+                window.location.href = "fund.html";
+            }
         } else {
-            alert('Failed to send OTP.');
+            alert('Insufficient balance. Please maintain a minimum balance of 5000.');
+            window.location.href = "fund.html";
+            
         }
+
     } catch (error) {
         console.error('Error:', error);
     }
@@ -398,6 +423,16 @@ function showSubmitMsg() {
     }
 
 
+    document.getElementById('download-pdf-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+    
+        // Replace `accountNumber` with the actual account number
+        const accountNumber = document.getElementById('account_number').textContent;
+    
+        // Trigger the download
+        window.location.href = `http://127.0.0.1:3000/download-transactions-pdf/${accountNumber}`;
+    });
+    
 
     // document.getElementById('logout').addEventListener('click', function logout() {
     //     localStorage.removeItem('cust_name');

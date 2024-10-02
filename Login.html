@@ -18,6 +18,12 @@
                 <input type="text" placeholder="CRN or Card Number" required>
                 <a href="newAcc.html">Don't have an account? Apply it now.</a>
                 <button type="submit">Sign Up</button>
+                <button id="home">Back</button>
+                <script>
+                    document.getElementById('home').addEventListener("click", function () {
+                        window.location.href = "accDeets.html";
+                    })
+                </script>
             </form>
         </div>
         <div class="form-container sign-in" id="sign-in">
@@ -31,6 +37,12 @@
                 <small id="password-error" style="color: red;"></small>
                 <a href="#">Forget Your Password?</a>
                 <button type="submit" id="navigateButton">Log In</button>
+                <button id="home">Back</button>
+                <script>
+                    document.getElementById('home').addEventListener("click", function () {
+                        window.location.href = "accDeets.html";
+                    })
+                </script>
             </form>
         </div>
         <div class="toggle-container">
@@ -39,11 +51,13 @@
                     <h1>Welcome Back!</h1>
                     <p>Enter your personal details to use all of site features</p>
                     <button class="hidden" id="login">Sign In</button>
+                    
                 </div>
                 <div class="toggle-panel toggle-right">
                     <h1>Hello, Friend!</h1>
                     <p>Register with your personal details to use all of site features</p>
                     <button class="hidden" id="register">Sign Up</button>
+                    
                 </div>
             </div>
         </div>

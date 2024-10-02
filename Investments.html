@@ -71,30 +71,23 @@
               <h5 class="card-title">Deposits</h5>
               <p class="card-text">Deposits are a safe and reliable way to grow your savings while earning steady interest. Invest in fixed or recurring deposits to secure guaranteed returns over time.</p>
               <div class="dep-opt">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                <div class="card" style="width: 25rem; text-align: center;">
+                    <img src="Assets/fix.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Fixed Deposit</h5>
                       <p class="card-text">Enjoy higher interest rates with a Fixed Deposit, a secure investment that locks in your money for a set term, providing guaranteed returns..</p>
                       <button class="btn btn-primary" id="fix-dep">Go somewhere</a>
                     </div>
                   </div>
-                  <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                  <div class="card" style="width: 25rem; text-align: center;">
+                    <img src="Assets/rec.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Recurring Deposit</h5>
                       <p class="card-text">A Recurring Deposit helps you grow your savings systematically by investing a fixed amount every month, offering flexible terms and assured returns.</p>
                       <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                   </div>
-                  <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Tax-Saving Deposit</h5>
-                      <p class="card-text">Invest in a Tax-Saving Deposit to benefit from attractive interest rates while also claiming deductions under Section 80C of the Income Tax Act.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
+                  
               </div>
               
               <br>
@@ -110,7 +103,7 @@
             <div class="card dep-card">
                 <div class="card-header">
                   New Fixed Deposit
-                  <a href="" style="margin-left: 15%;"> Use Deposit Calculator</a>
+                  <a href="https://www.kotak.com/en/calculators/fixed-deposit-calculator.html" style="margin-left: 15%;"> Use Deposit Calculator</a>
                 </div>
                 <div class="card-body">
                     <div class="sender-info">
@@ -145,6 +138,7 @@
                             <label class="form-check-label" for="customDurationOption">
                                 Custom Duration
                             </label>
+                            <p id="interest-rate-display" style="display:none; margin-top: 15px;">Interest Rate: <span id="interest-rate-value"></span>%</p>
                         </div>
                         
                         <!-- Hidden custom duration div -->

@@ -49,6 +49,14 @@
                     <input type="password" id="pass" name="pass" class="pass" required> 
                     <small id="password-error" style="color: red;"></small>
                 </div>
+
+                <label for="acc-type">Account Type</label>
+                    <select id="acc-type" name="acc-type">
+                        <option value="">Select Account</option>
+                        <option value="Savings Account">Savings Account</option>
+                        <option value="Current Account">Current Account</option>
+                        <option value="DEMAT Account">DEMAT Account</option>
+                    </select>
             
                 <div class="form-group">
                     <label for="pincode">Pincode*</label>
@@ -72,26 +80,27 @@
             
         </div>
     </div>
-    <div class="kyc-form" id="kyc-form">
+    <div class="kyc-form">
         <div class="card kyc-card hidden" id="kyc-card">
             <h5 class="card-header">Online KYC</h5>
             <div class="card-body">
               <h5 class="card-title">Please provide the necessary documents so it makes us easier to verify you.</h5>
               <p class="card-text">Do make sure that the provided documents are clear so as to avoid any further inconvenience.</p>
-              <div class="form-group">
-                <label for="cust_name">Customer Name:</label>
-                <input type="text" id="kyc-cust-name" name="cust_name"  readonly><br>
-            </div>
-              <form id="kyc-form" action="http://127.0.0.1:3000/upload" method="POST" enctype="multipart/form-data">
-                <input type="hidden" id="hidden-cust-name" name="cust_name" value="">
+              <form id="kyc-form" >  
+                <div class="form-group">
+                  <label for="cust_name">Customer Name:</label>
+                  <input type="text" id="kyc-cust-name" name="cust_name" readonly><br>
+                </div>
+                
                 <label for="aadhar">Upload Aadhaar Card:</label>
-                <input type="file" name="aadhar" accept=".jpg,.jpeg,.png,.pdf" required><br>
-            
+                <input type="file" id="aadhar" name="aadhar" accept=".jpg,.jpeg,.png,.pdf" required><br>
+                
                 <label for="pan">Upload PAN Card:</label>
-                <input type="file" name="pan" accept=".jpg,.jpeg,.png,.pdf" required><br>
-            
+                <input type="file" id="pan" name="pan" accept=".jpg,.jpeg,.png,.pdf" required><br>
+                
                 <button class="sub-btn" type="submit">Submit</button>
               </form>
+              
             
             </div>
           </div>
