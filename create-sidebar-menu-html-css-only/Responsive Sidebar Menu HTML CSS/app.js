@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     transactionElement.innerHTML = `
                         <i class="fa-solid ${iconClass}" style="color:${iconColor};"></i>
                         ${new Date(transaction.transaction_date).toLocaleDateString()}   
-                        <span>${transaction.transaction_id} / ${sender_name} / ${transaction.sender_acc_id} / Online</span>
+                        <span>${transaction.transaction_id} / ${transaction.rec_cust_name} / ${transaction.sender_acc_id} / Online</span>
                         <span>${sign}₹${parseFloat(transaction.amount).toFixed(2)}</span>
                     `;
     

